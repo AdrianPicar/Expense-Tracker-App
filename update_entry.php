@@ -37,10 +37,11 @@ while($row = $results->fetch(PDO::FETCH_ASSOC)){
 ?>
 
 <form action="<?php echo $_SERVER['PHP_SELF']."?id=".$_SESSION["id"];?>" method="post">
-    <div class="form-group">
+    <div class="form-group" id="sandbox-container">
         <label for="date">Date</label>
-        <input type="text" name="date" value="<?php echo $date;?>" class="form-control" id="entry_date" aria-describedby="emailHelp" placeholder="<?php echo $date;?>">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <input type="text" name="date" class="form-control" value="<?php echo $date;?>">
+        <!--input type="text" name="date" value="<?php echo $date;?>" class="form-control" id="entry_date" aria-describedby="emailHelp" placeholder="<?php echo $date;?>">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
     </div>
     <div class="form-group">
         <label for="amount">Amount</label>
@@ -63,3 +64,9 @@ while($row = $results->fetch(PDO::FETCH_ASSOC)){
     </div>
     <button type="submit" class="btn btn-primary">Update Entry</button>
 </form>
+
+<a href="home.php">Back</a>
+
+<?php
+include_once "footer.php";
+?>

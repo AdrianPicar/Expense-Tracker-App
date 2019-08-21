@@ -34,16 +34,16 @@ while($row = $results->fetch(PDO::FETCH_ASSOC)){
 <form action="<?php echo $_SERVER['PHP_SELF']."?id=".$_SESSION["id"];?>" method="post">
     <div class="form-group">
         <label for="date">Date</label>
-        <input type="text" name="date" class="form-control" id="entry_date" aria-describedby="emailHelp" placeholder="<?php echo $date;?>">
+        <input type="text" name="date" class="form-control" id="entry_date" aria-describedby="emailHelp" placeholder="<?php echo $date;?>" disabled>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
         <label for="amount">Amount</label>
-        <input type="number" name="amount" class="form-control" id="amount" placeholder="<?php echo $amount;?>">
+        <input type="number" name="amount" class="form-control" id="amount" placeholder="<?php echo $amount;?>" disabled>
     </div>
     <div class="form-group">
         <label for="category">Example select</label>
-        <select class="form-control" name="category" id="category">
+        <select class="form-control" name="category" id="category" disabled>
             <option value="Food">Food</option>
             <option value="Utilities">Utilities</option>
             <option value="Fun">Fun</option>
@@ -51,10 +51,12 @@ while($row = $results->fetch(PDO::FETCH_ASSOC)){
     </div>
     <div class="form-group">
         <label for="remarks">Remarks</label>
-        <input type="text" name="remarks" class="form-control" id="remarks" placeholder="<?php echo $remarks;?>">
+        <input type="text" name="remarks" class="form-control" id="remarks" placeholder="<?php echo $remarks;?>" disabled>
     </div>
     <div class="form-group">
         <?php echo $msg;?>
     </div>
     <button type="submit" class="btn btn-primary">Delete Entry</button>
 </form>
+
+<a href="home.php">Back</a>

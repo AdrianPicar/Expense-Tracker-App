@@ -9,12 +9,8 @@ function format_number($num){
 }
 ?>
 
-<div class="pure-g">
-    <div class="pure-u-1 pure-u-md-1">
-        <a href="home.php">Welcome <?php echo $_SESSION["username"]?></a>
-        <?php echo $_SESSION["msg"];?>
-    </div>
-</div>
+<?php echo $_SESSION["msg"];?>
+
 
 <div class="pure-g" style="margin:20px 0;">
     <div class="pure-u-1 pure-u-md-1">
@@ -53,10 +49,6 @@ function format_number($num){
         }  
     ?>
 </div>
-
-<a href="add_entry.php">Add Entry</a>
-<br>
-<a href="logout.php">Logout</a>
 
 <?php
 include_once "footer.php";
