@@ -1,5 +1,12 @@
 <?php
-include_once 'header.php';
+
+session_start();
+
+include_once "classes/database.php";
+include_once "classes/user.php";
+
+$database = new Database();
+$db = $database->getConnection();
 
 $msg = "";
 
