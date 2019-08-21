@@ -99,6 +99,21 @@ class Entry{
         return $stmt;
     }
 
+    function get_all_entries_within_range($from_date, $to_date){
+        $query = "SELECT * FROM " . $this->table_name . " WHERE username=:username AND 
+                date_created >= :from_date AND date_created <= :to_date
+                ORDER BY date_created DESC";  
+
+        $stmt = $this->conn->prepare($query);
+        
+        $stmt->bindParam(":username", $this->username);
+        $stmt->bindParam(":from_date", $from_date);
+        $stmt->bindParam(":to_date", $to_date);
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     function get_one_entry(){
         $query = "SELECT * FROM " . $this->table_name . " WHERE username=:username AND entry_id=:id";  
 
