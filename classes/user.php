@@ -35,7 +35,7 @@ class User{
     }
 
     function get_user_info(){
-        $query = "SELECT * FROM " . $this->table_name . " WHERE username = :username";  
+        $query = "SELECT SUM(amount) AS total FROM entries WHERE username = :username";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":username", $this->username);
@@ -46,7 +46,7 @@ class User{
         if($stmt->rowCount() == 0)
             return "0";
         else{
-            $this->amount_budget = $row['security_question'];
+            $this->amount_budget = $row['total'];
 
             return $this->amount_budget;
         }        
