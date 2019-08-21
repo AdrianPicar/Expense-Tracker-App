@@ -44,31 +44,6 @@ if($_POST){
         
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <!--form class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-        <fieldset>
-            <div class="pure-control-group">
-                <label for="name">Username</label>
-                <input id="name" name="username" type="text" placeholder="Username">
-                <span class="pure-form-message-inline"></span>
-            </div>
-
-            <div class="pure-control-group">
-                <label for="password">Password</label>
-                <input id="password" name="password" type="password" placeholder="Password">
-                <span class="pure-form-message-inline"></span>
-            </div>
-
-            <div class="pure-controls">
-                <span class="pure-form-message" style="margin-bottom:10px;">
-                <?php 
-                    if(isset($err_msg)) 
-                        echo $err_msg; 
-                ?>
-                </span>
-                <button type="submit" class="pure-button pure-button-primary">Submit</button>
-            </div>
-        </fieldset>
-    </form-->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
