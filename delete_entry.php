@@ -42,7 +42,7 @@ while($row = $results->fetch(PDO::FETCH_ASSOC)){
         <input type="number" name="amount" class="form-control" id="amount" placeholder="<?php echo $amount;?>" disabled>
     </div>
     <div class="form-group">
-        <label for="category">Example select</label>
+        <label for="category">Category</label>
         <select class="form-control" name="category" id="category" disabled>
             <option value="Food">Food</option>
             <option value="Utilities">Utilities</option>

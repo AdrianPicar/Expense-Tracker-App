@@ -9,18 +9,21 @@ function format_number($num){
 }
 ?>
 
-<?php echo $_SESSION["msg"];?>
+<?php 
+if(isset($_SESSION["msg"]))
+    echo $_SESSION["msg"];
+?>
 
 
 <div class="pure-g" style="margin:20px 0;">
     <div class="pure-u-1 pure-u-md-1">
         <?php
-            $user = new User($db);
-            $user->username = $_SESSION['username'];
-            $total = $user->get_user_info();
-            $remaining_budget = $_SESSION["budget"] - $total;
-            $pct_remaining = $total / $_SESSION["budget"] * 100;
-            echo "Remaining balance: " . format_number($remaining_budget);
+        $user = new User($db);
+        $user->username = $_SESSION['username'];
+        $total = $user->get_user_info();
+        $remaining_budget = $_SESSION["budget"] - $total;
+        $pct_remaining = $total / $_SESSION["budget"] * 100;
+        echo "Remaining balance: " . format_number($remaining_budget);
         ?>
         <div class="progress">
             <div class="progress-bar" role="progressbar"  style="width: <?php echo $pct_remaining;?>%" aria-valuenow="<?php echo $pct_remaining;?>" aria-valuemin="0" aria-valuemax="100">

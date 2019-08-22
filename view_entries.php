@@ -28,20 +28,25 @@ function format_number($num){
         Activity last 10 days
     </div>
     <?php
-        if($_POST){
-            $entry = new Entry($db);
-            $results = $entry->get_all_entries_within_range($_POST["from_date"], $_POST["to_date"]);
-            while($row = $results->fetch(PDO::FETCH_ASSOC)){
-                echo "<div class='row' style='padding:5px;'>";
-                echo "<div class='col'>" . $row["date_created"] . "</div>";
-                echo "<div class='col'>" . format_number($row["amount"]) . "</div>";
-                echo "<div class='col'>" . $row["category"] . "</div>";
-                echo "<div class='col'>" . $row["remarks"] . "</div>";
-                echo "<div class='col'><a href = 'update_entry.php?id={$row["entry_id"]}'>Update" . "</a>" . "</div>";
-                echo "<div class='col'><a href = 'delete_entry.php?id={$row["entry_id"]}'>Delete" . "</a>" . "</div>";
-                echo "</div>";
-            } 
-        }
+    $entry = new Entry($db);
+    $no_entries = true;
+    if($_POST){
+        $results = $entry->get_all_entries_within_range($_POST["from_date"], $_POST["to_date"]);
+    }else{
+        $results = $entry->get_all_entries();
+    }
+    while($row = $results->fetch(PDO::FETCH_ASSOC)){
+        echo "<div class='row' style='padding:5px;'>";
+        echo "<div class='col'>" . $row["date_created"] . "</div>";
+        echo "<div class='col'>" . format_number($row["amount"]) . "</div>";
+        echo "<div class='col'>" . $row["category"] . "</div>";
+        echo "<div class='col'>" . $row["remarks"] . "</div>";
+        echo "<div class='col'><a href = 'update_entry.php?id={$row["entry_id"]}'>Update" . "</a>" . "</div>";
+        echo "<div class='col'><a href = 'delete_entry.php?id={$row["entry_id"]}'>Delete" . "</a>" . "</div>";
+        echo "</div>";
+    }
+    if($no_entries)
+        echo "No entries found.";
     ?>
 </div>
 

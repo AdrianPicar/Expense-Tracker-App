@@ -127,6 +127,8 @@ class Entry{
     }
 }
 
+//example only
+
 function create(){
  
     //write query
